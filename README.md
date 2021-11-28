@@ -5,7 +5,7 @@ commands to make life easier.
 
 ## Documentation
 
-[[https://tghaleb.eu.org/comandante]]
+<https://tghaleb.eu.org/comandante>
 
 ## Contributing
 

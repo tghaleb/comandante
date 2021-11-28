@@ -1,4 +1,4 @@
-ame: Deploy docs
+name: Deploy docs
 on: [push, pull_request]
 jobs:
   build:
