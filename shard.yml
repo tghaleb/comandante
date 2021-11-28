@@ -1,7 +1,4 @@
 name: comandante
-description: A simple CLI toolkit including an option parser and some helper
-commands to make life easier.
-
 version: 0.1.0
 
 authors:
