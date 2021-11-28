@@ -1,0 +1,27 @@
+site_name: Comandante
+
+theme:
+  name: windmill
+  highlightjs: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: crystal
+      watch: [src]
+
+markdown_extensions:
+  - pymdownx.highlight
+  - deduplicate-toc
+
+nav:
+  - Home: index.md
+  - API: 
+    - Comandante: comandante.md
+    - OptParser: opt_parser.md
+    - "OptParser Types": opt_parser_types.md
+    - Cleaner: cleaner.md
+    - "Cleaner Types": cleaner_types.md
+    - Helper: helper.md
+    - Bits: bits.md
+    - Other: other.md
