@@ -102,8 +102,7 @@ Helper.debug_inspect(@opts.options)
 [debug_inspect][Comandante::Helper.debug_inspect] will display
 debug messages if the user uses the `--debug` switch. 
 
-For a full example take a look at [examples/prog1.cr][examples/prog1.cr]
-
+For a full example take a look at [examples/prog1.cr][https://github.com/tghaleb/comandante/examples]
 For subcommands you create a class derived from [CommandAction][Comandante::OptParserTypes::CommandAction].
 
 ```crystal
