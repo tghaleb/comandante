@@ -3,6 +3,8 @@
 A simple CLI toolkit including an option parser and some helper
 commands to make life easier.
 
+![Screen Shot](images/image.png)
+
 ## Documentation
 
 <https://tghaleb.eu.org/comandante>

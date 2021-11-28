@@ -14,4 +14,5 @@ examples:
 	crystal build examples/prog2.cr -o ${BIN_DIR}/prog2
 
 docs:
-	crystal docs
+	mkdocs build
+#	crystal docs
