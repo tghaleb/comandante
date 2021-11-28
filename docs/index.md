@@ -1,4 +1,4 @@
-# Welcome Comandante
+# Welcome to Comandante
 
 A CLI toolkit including an option parser and some helper
 commands to make life easier. 
@@ -43,6 +43,17 @@ dependencies:
 
 2. Run `shards install`
 
+## Examples
+
+In `Commandante` project directory:
+
+```console
+make examples
+./examples/prog1 -h
+./examples/prog2 --help
+```
+
+Take a look at the code in `examples/` and optionally in `spec/`.
 
 ## Usage
 
