@@ -7,14 +7,6 @@ commands to make life easier.
 
 [[https://tghaleb.github.io/comandante]]
 
-## TODO
-
-- test parser
-- Cleanup docs
-- add image gif of example prog
-
-- cleanup option parser.
-
 ## Contributing
 
 1. Fork it (<https://github.com/tghaleb/comandante/fork>)
