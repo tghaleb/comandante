@@ -55,11 +55,6 @@ module Comandante
        sizeof(typeof({{t}})) * 8
     end
 
-    enum Indianess
-      Big
-      Little
-    end
-
     {% for n in [8, 16, 32, 64, 128] %}
     # Stores uint in int so we can serialize/store in places where uint
     # is not supported
@@ -161,21 +156,13 @@ module Comandante
     end
 
     # Returns binary representation as String
-    # FIXME: probably need indianess here (lookup this on web)
-    def self.bits_to_string(uint, indian = Indianess::Little) : String
+    def self.bits_to_string(uint) : String
       size = type_bits(uint)
       res = Array(String).new(size: size, value: "0")
 
-      if indian == Indianess::Little
-        Bits.loop_over_set_bits(uint) do |i|
-          # left to right
-          res[size - 1 - i] = "1"
-        end
-      else
-        Bits.loop_over_set_bits(uint) do |i|
-          # right to left
-          res[i] = "1"
-        end
+      Bits.loop_over_set_bits(uint) do |i|
+        # left to right
+        res[size - 1 - i] = "1"
       end
       return res.join("")
     end
