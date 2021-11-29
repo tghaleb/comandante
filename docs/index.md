@@ -1,4 +1,4 @@
-# Welcome to Comandante
+# Comandante
 
 A CLI toolkit including an option parser and some helper
 commands to make life easier. 
