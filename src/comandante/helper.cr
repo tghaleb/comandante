@@ -12,7 +12,7 @@ require "compress/zip"
 module Comandante
   # Some helper functions
   module Helper
-    # A from_yaml wrapper than exits/raises on failure
+    # A from_yaml wrapper that exits/raises on failure
     #
     # Example
     #

@@ -285,5 +285,5 @@ m = bits.store_as_int(x)
 u = bits.store_as_uint(m)
 ```
 
-see [comandante_bits_spec.cr][spec/comandante_bits_spec.cr]
+see [spec/](https://github.com/tghaleb/comandante/blob/main/spec/)
 
