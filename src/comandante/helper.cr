@@ -38,6 +38,11 @@ module Comandante
       STDERR.puts("%s%s" % [pref, msg.colorize(:red)])
     end
 
+    # Prints a message to STDERR if in verbose mode
+    def self.put_verbose(msg)
+      STDERR.puts(msg) if Cleaner.verbose
+    end
+
     # Prints a debug message if `Cleaner` is in debug mode
     def self.put_debug(msg, pref = "Debug: ")
       if Cleaner.debug
@@ -55,14 +60,14 @@ module Comandante
     # debug_inspect(["one", "two"])
     # ```
     def self.debug_inspect(val, context = "")
-      val_s = val.inspect
+      val_s = val.pretty_inspect
         .gsub(/([{},\[\]])/) { |s| $1.colorize(:red).to_s }
         .gsub(" => ", " => ".colorize(:yellow))
         .gsub(/("([^"\\]|\\.)*")/) { |s| $1.colorize(:green).to_s }
         .gsub(/(\[0m)([a-z][\w\d_]*: )/) { |s| $1 + $2.colorize(:blue).to_s }
 
       if context != ""
-        put_debug("[#{context}] -> " + val_s)
+        put_debug("[#{context.colorize(:blue)}] -> " + val_s)
       else
         put_debug(val_s)
       end

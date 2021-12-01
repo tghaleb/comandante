@@ -12,6 +12,7 @@ module Comandante
     alias ArraySimpleProc = Array(SimpleProc)
 
     @@debug = false
+    @@verbose = false
     @@cleanup_actions = ArraySimpleProc.new
     @@failure_behavior = FailureMode::EXIT
     @@tempfiles = Array(File).new
@@ -19,6 +20,8 @@ module Comandante
 
     # The desired failure_behavior, see `FailureMode`
     class_property failure_behavior
+
+    class_property verbose
 
     # Debug Mode, you can use an action to set this with a global --debug
     # option
