@@ -85,6 +85,13 @@ it is a [Swtich][Comandante::OptParserTypes::OptionStyle::Switch]
    label: "debug mode",
    simple_action: OptParser::OptProc.new { |v| Cleaner.debug = v.as(Bool) }
  ))
+@opts.append_option(
+  OptParser::OptionConfig.new(
+   name: "verbose",
+   label: "verbose mode",
+   simple_action: OptParser::OptProc.new { |v| Cleaner.verbose = v.as(Bool) }
+ ))
+
 ```
 
 The *simple_action* takes a proc that sets debug mode. Another
@@ -224,6 +231,7 @@ cleaners in addition to removing tempfiles and temp directories.
 Helper.debug_msg("Will print this in debug mode"
 Helper.debug_inspect(@opts)
 Helper.put_error("Something went wrong")
+Helper.put_verbose("Creating files")
 
 # running commands
 Helper.run("touch newfile")
