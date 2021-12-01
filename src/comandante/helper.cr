@@ -50,18 +50,22 @@ module Comandante
     # Example:
     #
     # ```
-    # debug_inspect(@opts)
+    # debug_inspect(@opts, context: "@opts")
     # debug_inspect({test: x == y})
     # debug_inspect(["one", "two"])
     # ```
-    def self.debug_inspect(val)
+    def self.debug_inspect(val, context = "")
       val_s = val.inspect
         .gsub(/([{},\[\]])/) { |s| $1.colorize(:red).to_s }
         .gsub(" => ", " => ".colorize(:yellow))
         .gsub(/("([^"\\]|\\.)*")/) { |s| $1.colorize(:green).to_s }
         .gsub(/(\[0m)([a-z][\w\d_]*: )/) { |s| $1 + $2.colorize(:blue).to_s }
 
-      put_debug(val_s)
+      if context != ""
+        put_debug("[#{context}] -> " + val_s)
+      else
+        put_debug(val_s)
+      end
     end
 
     # Asserts a condition, depending on `Cleaner` will either exit with
