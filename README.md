@@ -9,7 +9,7 @@ commands to make life easier.
 
 ## Documentation
 
-<https://tghaleb.eu.org/comandante>
+<https://www.tghaleb.eu.org/comandante>
 
 ## Contributors
 
