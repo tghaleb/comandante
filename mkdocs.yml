@@ -26,4 +26,5 @@ nav:
     - "Cleaner Types": cleaner_types.md
     - Helper: helper.md
     - Bits: bits.md
+    - ConfigSigleton: config_singleton.md
     - Other: other.md

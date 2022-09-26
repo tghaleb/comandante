@@ -53,7 +53,10 @@ make examples
 ./examples/prog2 --help
 ```
 
-Take a look at the code in `examples/` and optionally in `spec/`.
+Take a look at the code in
+[examples/](https://github.com/tghaleb/comandante/blob/main/examples/)
+and optionally in
+[spec/](https://github.com/tghaleb/comandante/blob/main/spec/).
 
 ## Usage
 
@@ -294,4 +297,52 @@ u = bits.store_as_uint(m)
 ```
 
 see [spec/](https://github.com/tghaleb/comandante/blob/main/spec/)
+
+### Config
+
+A provided [ConfigSingleton][Comandante::ConfigSingleton] simplifies
+loading config from a `yaml` file. You use the included
+macro `config_type`, for example:
+
+```crystal
+  class Config < ConfigSingleton
+    config_type(MyConfig) do
+      name : String = "foo"
+      age : Int32 = 150
+    end
+...
+```
+
+Which creates accessors on both the instance on the `Config` module.
+And you get pass a yaml config file to initialize instance like so:
+
+```crystal
+Config.initialize("config.yaml")
+
+puts Config.name
+puts Config.instace.name
+...
+```
+
+You can also add a validator for the config data,
+
+```crystal
+private def self._validate
+  if self.age > 200
+    self.exit_error("bad agae #{self.age}")
+  end
+end
+```
+
+You can create complex types that are classes and structs just make sure to
+derive your sub-classes from `ConfigData`.
+
+```crystal
+class MyType < ConfigData 
+end
+```
+
+Take a look at the code in [examples/](https://github.com/tghaleb/comandante/blob/main/examples/).
+
+
 
