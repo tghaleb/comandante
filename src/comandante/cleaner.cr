@@ -17,6 +17,7 @@ module Comandante
     @@failure_behavior = FailureMode::EXIT
     @@tempfiles = Array(File).new
     @@tempdirs = Array(Dir).new
+    @@exit_on_pipe_error = false
 
     # The desired failure_behavior, see `FailureMode`
     class_property failure_behavior
@@ -26,6 +27,9 @@ module Comandante
     # Debug Mode, you can use an action to set this with a global --debug
     # option
     class_property debug
+
+    # Exit on pipe error, sometimes you to exit on pipe errors
+    class_property exit_on_pipe_error
 
     # Create a tempdir that will be removed on exit as long as you are
     # running inside a `run` block
@@ -134,9 +138,11 @@ module Comandante
     # block.
     #
     def run(&block) : Nil
-      # Just to avoid failures on pipes
-      Signal::PIPE.trap do
-        Comandante::Cleaner.exit_success
+      # Just to avoid failures on pipes, sometimes needed
+      if exit_on_pipe_error
+        Signal::PIPE.trap do
+          Comandante::Cleaner.exit_success
+        end
       end
 
       # It seems this works most of the time
