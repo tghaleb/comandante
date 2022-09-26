@@ -327,7 +327,7 @@ You can also add a validator for the config data,
 ```crystal
 private def self._validate
   if self.age > 200
-    self.exit_error("bad agae #{self.age}")
+    self.exit_error("bad age #{self.age}")
   end
 end
 ```
