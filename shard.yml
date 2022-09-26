@@ -4,6 +4,6 @@ version: 0.1.2
 authors:
   - Tarek Ghaleb <tghaleb@users.noreply.github.com>
 
-crystal: 1.2.0
+crystal: 1.5.0
 
 license: MIT
