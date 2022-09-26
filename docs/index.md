@@ -300,9 +300,7 @@ see [spec/](https://github.com/tghaleb/comandante/blob/main/spec/)
 
 ### Config
 
-A provided [ConfigSingleton][Comandante::ConfigSingleton] simplifies
-loading config from a `yaml` file. You use the included
-macro `config_type`, for example:
+A [ConfigSingleton][Comandante::ConfigSingleton] that simplifies loading config from a `yaml` file. You use the included macro `config_type`, for example:
 
 ```crystal
   class Config < ConfigSingleton
@@ -313,8 +311,8 @@ macro `config_type`, for example:
 ...
 ```
 
-Which creates accessors on both the instance on the `Config` module.
-And you get pass a yaml config file to initialize instance like so:
+Which creates accessors on both the instance and on the `Config` module.
+And you can pass a yaml config file to initialize the instance like so:
 
 ```crystal
 Config.initialize("config.yaml")
@@ -334,8 +332,13 @@ private def self._validate
 end
 ```
 
-You can create complex types that are classes and structs just make sure to
-derive your sub-classes from `ConfigData`.
+Which you can call by calling
+
+```crystal
+Config.validate
+```
+You can also create complex types that are classes just make sure to
+derive your sub-classes from `ConfigData`. Nested types also work.
 
 ```crystal
 class MyType < ConfigData 
