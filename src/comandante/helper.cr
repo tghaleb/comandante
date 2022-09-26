@@ -12,6 +12,8 @@ require "compress/zip"
 module Comandante
   # Some helper functions
   module Helper
+    EMPTY_STRING_ARRAY = Array(String).new
+
     # A from_yaml wrapper that exits/raises on failure
     #
     # Example
@@ -36,6 +38,11 @@ module Comandante
     # Prints an error message to STDERR
     def self.put_error(msg, pref = "Error: ")
       STDERR.puts("%s%s" % [pref, msg.colorize(:red)])
+    end
+
+    # Prints a warning message to STDERR
+    def self.put_warning(msg, pref = "Warning: ")
+      STDERR.puts("%s%s" % [pref, msg.colorize(:yellow)])
     end
 
     # Prints a message to STDERR if in verbose mode
@@ -214,8 +221,22 @@ module Comandante
     end
 
     # Runs a command using system and raises if command fails
-    def self.run(cmd, args, msg = "cmd failed") : Nil
-      system(cmd, args: args)
+    def self.run(cmd, args = EMPTY_STRING_ARRAY, msg = "cmd failed") : Nil
+      if Cleaner.verbose
+        STDERR.print("run : ".colorize(:green).to_s)
+        STDERR.print(cmd)
+        STDERR.print(" ")
+        if args.empty?
+          STDERR.puts
+        else
+          STDERR.puts(args.inspect)
+        end
+      end
+      if args.empty?
+        system(cmd)
+      else
+        system(cmd, args: args)
+      end
       unless $?.success?
         raise msg
       end
