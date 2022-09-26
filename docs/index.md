@@ -21,8 +21,11 @@ commands to make life easier.
   or exceptions.
 - tempfiles and directories that will automatically be cleaned on
   exit.
+- A `ConfigSignleton` class that simplifies loading config from `yaml`
+  files.
 - A [helper][Comandante::Helper] providing:
     - error messages
+    - warning messages
     - debugging messages
     - assertions
     - yaml reader/writer
