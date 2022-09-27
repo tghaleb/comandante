@@ -6,5 +6,5 @@ require "./comandante/bits"
 require "./comandante/helper"
 
 module Comandante
-  VERSION = "0.1.3"
+  VERSION = "0.1.4"
 end
