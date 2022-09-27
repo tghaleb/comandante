@@ -117,6 +117,17 @@ debug messages if the user uses the `--debug` switch.
 
 For a full example take a look at [examples/](https://github.com/tghaleb/comandante/blob/main/examples/)
 
+There is also `debug` and `debug_pretty` macros, which are wrappers
+around the above but will not be included when compiled in `--release`
+mode. These are the ones to use when maximum performance is
+required, to avoid any overhead of the debug calls. Just require:
+
+```crystal
+require "comandante/macros"
+```
+
+and include [Macros][Comandante::Macros] where you want to use them.
+
 For subcommands you create a class derived from [CommandAction][Comandante::OptParserTypes::CommandAction].
 
 ```crystal

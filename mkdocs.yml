@@ -25,6 +25,7 @@ nav:
     - Cleaner: cleaner.md
     - "Cleaner Types": cleaner_types.md
     - Helper: helper.md
-    - Bits: bits.md
+    - Macros: macros.md
     - ConfigSigleton: config_singleton.md
+    - Bits: bits.md
     - Other: other.md
