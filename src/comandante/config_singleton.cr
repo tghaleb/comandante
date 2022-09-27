@@ -1,5 +1,6 @@
 require "yaml"
 require "./singleton"
+require "./macros"
 
 module Comandante
   # A base file for data used by `ConfigSingleton`
@@ -24,6 +25,7 @@ module Comandante
   # ```
   abstract class ConfigSingleton < Singleton
     include Comandante
+    include Comandante::Macros
 
     macro config_type(klass, &block)
       class {{klass}} < ConfigData
@@ -48,7 +50,7 @@ module Comandante
           @config = {{klass}}.new
         end
   
-        Comandante::Helper.debug_inspect(@config)
+        debug_pretty(@config)
       end
 
         {% for expr in yield.expressions %}
