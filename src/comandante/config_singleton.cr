@@ -94,12 +94,6 @@ module Comandante
       _def_config({{klass}})
     end
 
-    # To be used to validate config
-    # you need to define a _validate function
-    def self.validate
-      _validate
-    end
-
     private def self.exit_error(msg)
       Comandante::Cleaner.exit_failure("config error: " + msg)
     end

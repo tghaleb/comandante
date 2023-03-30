@@ -70,8 +70,6 @@ module Comandante
       Conversions(UInt{{n}}, Int{{n}}).store_as_uint(int)
     end
 
-    {% end %}
-
     # Sets bits on Uint Types
     #
     # Example
@@ -79,16 +77,19 @@ module Comandante
     # To set bits 1,7 and 8
     #
     # ```
-    # set_bits(x, [1, 7, 8]
+    # set_bits(x, [1, 7, 8])
     # ```
     @[AlwaysInline]
-    def self.set_bits(uint, a : Array(Int32))
+    def self.set_bits(uint, a : Array(Int{{n}}))
       size = type_bits(uint)
       a.each do |x|
         uint |= MASKS[size][1] << x
       end
       return uint
     end
+
+
+    {% end %}
 
     # Returns n bits from position
     #
@@ -97,7 +98,7 @@ module Comandante
     # To get a new uint with only count bits from given position
     #
     # ```
-    # x = get_bits(u, from: 3, count 2]
+    # x = get_bits(u, from: 3, count 2])
     # ```
     @[AlwaysInline]
     def self.get_bits(uint, from : Int32, count : Int32)
