@@ -1,5 +1,4 @@
 require "yaml"
-require "./singleton"
 require "./macros"
 
 module Comandante
@@ -23,58 +22,80 @@ module Comandante
   #        age : Int32 = 150
   #      end
   # ```
-  abstract class ConfigSingleton < Singleton
+  abstract class ConfigSingleton
     include Comandante
     include Comandante::Macros
 
-    macro config_type(klass, &block)
+    private macro _properties(expressions)
+      {% for expr in expressions %}
+      {% if expr.is_a?(TypeDeclaration) %}
+        _property {{expr.var}}
+      {% end %}{% end %}
+    end
+
+    # setters and getters for @config.var on both class and object
+    private macro _property(var)
+      def {{var}}
+        return @config.{{var}}
+      end
+      def {{var}}=(val)
+          @config.{{var}} = val
+      end
+      def self.{{var}}
+          return self.instance.{{var}}
+      end
+      def self.{{var}}=(val)
+          self.instance.{{var}}= val 
+      end
+    end
+
+    private macro _def_config(klass)
+      @config : {{klass}} = {{klass}}.new
+      getter :config
+
+      def load_config(file)
+          Helper.assert_file(file)
+          @config = Helper::YamlTo({{klass}}).load(File.read(file))
+
+          debug_pretty(@config)
+      end
+    end
+
+    # Seems that single property in a block is passed differently
+    # at least for now so we treat it differently.
+    private macro _single_property_config_type(klass, var, type, value)
+      class {{klass}} < ConfigData
+        property {{var}} : {{type}}  = {{value}}
+      end
+      _property {{var}}
+    end
+
+    private macro _multi_property_config_type(klass, &block)
       class {{klass}} < ConfigData
         {% for expr in yield.expressions %}
         {% if expr.is_a?(TypeDeclaration) %}
           property {{expr}}
         {% else %}
           {{expr}}
-        {% end %}
-        {% end %}
+        {% end %}{% end %}
       end
+      _properties({{yield.expressions}})
+    end
 
-      @config: {{klass}}
-      getter :config
-
-      # Initialize from a yaml file or just from defaults.
-      private def initialize(file = "")
-        if file != ""
-          Helper.assert_file(file)
-          @config = Helper::YamlTo({{klass}}).load(File.read(file))
-        else
-          @config = {{klass}}.new
-        end
-  
-        debug_pretty(@config)
-      end
-
-        {% for expr in yield.expressions %}
-        {% if expr.is_a?(TypeDeclaration) %}
-          def {{expr.var}}
-            return @config.{{expr.var}}
-          end
-          def {{expr.var}}=(val)
-              @config.{{expr.var}} = val
-          end
-          def self.{{expr.var}}
-              return self.instance.{{expr.var}}
-          end
-          def self.{{expr.var}}=(val)
-              self.instance.{{expr.var}}= val 
-          end
-        {% end %}
+    # defines a config type and accessors of its properties on the
+    # singleton class as well as on @config, also defines a load_config
+    macro config_type(klass, &block)
+      as_singleton
+      {% if yield.is_a?(TypeDeclaration) %}
+          _single_property_config_type({{klass}}, {{yield.var}}, {{yield.type}}, {{yield.value}})
+      {% else %}
+       _multi_property_config_type({{klass}}) {{block}}
       {% end %}
+      _def_config({{klass}})
     end
 
-    def self.dump_yaml
-      puts self.instance.config.to_yaml
-    end
-
+    # To be used to validate config
+    # you need to define a _validate function
     def self.validate
       _validate
     end
