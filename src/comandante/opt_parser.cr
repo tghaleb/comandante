@@ -2,6 +2,16 @@ module Comandante
   class OptParser
     include Comandante::OptParserTypes
 
+    @@version : String = "SET ME"
+
+    def self.version
+      return @@version
+    end
+
+    def self.version=(val)
+      @@version = val
+    end
+
     # TODO: cleanups for this file
     # :nodoc:
     ERROR_MSGS = {
@@ -14,13 +24,26 @@ module Comandante
     # ID for the main command, used internally
     ROOT_ID = "/"
 
+    new_option_action(ColorOffAction) do
+      Colorize.enabled = false if value
+    end
+
+    new_option_action(DebugAction) do
+      Comandante::Cleaner.debug = true
+    end
+
     # :nodoc:
-    class HelpAction < OptionAction
-      def run(parser : OptParser, id : String, value : OptionValue) : OptionValue
-        parser.print_help(id)
-        exit 0
-        value
-      end
+    new_option_action(HelpAction) do
+      parser.print_help(id)
+      Cleaner.exit_success
+      # FIXME: exit proper
+      # exit 0
+    end
+
+    new_option_action(VersionAction) do
+      # STDERR.puts(VERSION)
+      STDERR.puts(OptParser.version)
+      Comandante::Cleaner.exit_success
     end
 
     # :nodoc:
@@ -29,6 +52,34 @@ module Comandante
       short: "h",
       label: "prints this help and exits.",
       action: HelpAction.new
+    )
+
+    # Built-ins
+    DEBUG_OPT = OptionConfig.new(
+      name: "debug",
+      short: "D",
+      label: "debug mode.",
+      action: DebugAction.new
+    )
+
+    VERBOSE_OPT = OptionConfig.new(
+      name: "verbose",
+      short: "v",
+      label: "verbose mode.",
+      simple_action: OptParser::OptProc.new { |v| Cleaner.verbose = true }
+    )
+
+    COLOR_OFF_OPT = OptionConfig.new(
+      name: "no-color",
+      short: "C",
+      label: "color mode off.",
+      action: ColorOffAction.new
+    )
+
+    VERSION_OPT = OptionConfig.new(
+      name: "version",
+      label: "display version and exit.",
+      action: VersionAction.new
     )
 
     @auto_help = true

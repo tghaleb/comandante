@@ -42,6 +42,17 @@ module Comandante
       ) : OptionValue
     end
 
+    # inside yield you can use parser, id, and value
+    macro new_option_action(klass, &)
+      class {{klass}} < OptionAction
+        def run(parser : OptParser, id : String, value : OptionValue) : OptionValue
+          # not perfect but seems to work
+          {{yield}}
+          value
+        end
+      end
+    end
+
     # A Null Command Action
     class NullCommandAction < CommandAction
       def run(
