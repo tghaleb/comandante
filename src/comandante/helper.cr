@@ -95,12 +95,12 @@ module Comandante
 
     # Asserts that a file exists
     def self.assert_file(file) : Nil
-      assert(File.file?(file), "Not a file '#{file}")
+      assert(File.file?(file), "Not a file '#{file}'")
     end
 
     # Asserts that a directory exists
     def self.assert_directory(dir) : Nil
-      assert(File.directory?(dir), "Not a directory '#{dir}")
+      assert(File.directory?(dir), "Not a directory '#{dir}'")
     end
 
     # mkdir with verbose option
@@ -212,11 +212,20 @@ module Comandante
     end
 
     # Writes gziped file from a string
+    @[AlwaysInline]
     def self.write_gzip(str, path) : Nil
       File.open(path, "w") do |io|
         Compress::Gzip::Writer.open(io) do |dio|
           dio.print str
         end
+      end
+    end
+
+    # Writes Bytes to a file
+    @[AlwaysInline]
+    def self.write_binary_file(file : String, data : Bytes)
+      File.open(file, "w") do |io|
+        io.write(data)
       end
     end
 
