@@ -1,2 +1,9 @@
-name: "bar"
-age:  120
+root_dir: "/srv/http"
+listen:  127.0.0.1
+
+urls:
+  www.example.com:
+    scheme: http
+  github.com:
+    scheme: https
+

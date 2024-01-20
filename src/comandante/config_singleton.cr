@@ -22,6 +22,20 @@ module Comandante
   #        age : Int32 = 150
   #      end
   # ```
+  #
+  # if you intend to use nested types derive them first from ConfigData
+  #
+  # ```
+  #    class Config < ConfigSingleton
+  #      class URLConfig < ConfigData
+  #        getter scheme : String = "https"
+  #        getter no_proxy : Bool = false
+  #      end
+  #
+  #      config_type(MyConfig) do
+  #        urls : Hash(String, URLConfig) = Hash(String, URLConfig).new
+  #      end
+  # ```
   abstract class ConfigSingleton
     include Comandante
     include Comandante::Macros
@@ -45,7 +59,7 @@ module Comandante
           return self.instance.{{var}}
       end
       def self.{{var}}=(val)
-          self.instance.{{var}}= val 
+          self.instance.{{var}}= val
       end
     end
 
@@ -92,6 +106,17 @@ module Comandante
        _multi_property_config_type({{klass}}) {{block}}
       {% end %}
       _def_config({{klass}})
+    end
+
+    # Used to load/read config file
+    #
+    # Example
+    #
+    # ```
+    # Config.load_config(ARGV[0])
+    # ```
+    def self.load_config(file)
+      instance.load_config(file)
     end
 
     private def self.exit_error(msg)

@@ -1,22 +1,22 @@
 # Comandante
 
 A CLI toolkit including an option parser and some helper
-commands to make life easier. 
+commands to make life easier.
 
 ## Features
 
 - Easy to use command line [option parser][Comandante::OptParser].
 - Supports four [option types][Comandante::OptParserTypes::OptionStyle]:
-    - Switches
-    - Options
-    - Repeating Switches
-    - Repeating Options
+  - Switches
+  - Options
+  - Repeating Switches
+  - Repeating Options
 - Automatic addition of help (active by [default][Comandante::OptParser#auto_help]).
 - User actions can be attached to commands/options.
 - Argument count checking.
-- Customizable modes of [failure][Comandante::Cleaner::FailureMode]: 
-    - Exit with message
-    - Raise exception
+- Customizable modes of [failure][Comandante::Cleaner::FailureMode]:
+  - Exit with message
+  - Raise exception
 - A [cleaner][Comandante::Cleaner] which allows for custom cleanup functions on exits
   or exceptions.
 - tempfiles and directories that will automatically be cleaned on
@@ -24,13 +24,13 @@ commands to make life easier.
 - A `ConfigSignleton` class that simplifies loading config from `yaml`
   files.
 - A [helper][Comandante::Helper] providing:
-    - error messages
-    - warning messages
-    - debugging messages
-    - assertions
-    - yaml reader/writer
-    - gzip file reader/writer
-    - and more ...
+  - error messages
+  - warning messages
+  - debugging messages
+  - assertions
+  - yaml reader/writer
+  - gzip file reader/writer
+  - and more ...
 - Colorized backtrace messages for [exceptions][Exception].
 - Helper functions for [bitwise operations][Comandante::Bits].
 
@@ -54,6 +54,7 @@ In `Commandante` project directory:
 make examples
 ./examples/prog1 -h
 ./examples/prog2 --help
+./examples/prog1-config --debug ./examples/prog1-config.yaml
 ```
 
 Take a look at the code in
@@ -79,7 +80,7 @@ create a new [OptParser][Comandante::OptParser.new].
   arguments_range: 1..1)
 ```
 
-*arguments_range* for argument count checking.
+_arguments_range_ for argument count checking.
 
 Add an option, unless you specify the option type
 it is a [Swtich][Comandante::OptParserTypes::OptionStyle::Switch]
@@ -100,8 +101,8 @@ it is a [Swtich][Comandante::OptParserTypes::OptionStyle::Switch]
 
 ```
 
-The *simple_action* takes a proc that sets debug mode. Another
-option that you can use is *action* which takes a class
+The _simple_action_ takes a proc that sets debug mode. Another
+option that you can use is _action_ which takes a class
 derived from [OptionAction][Comandante::OptParserTypes::OptionAction].
 Use it when `simple_action` is not enough.
 
@@ -113,7 +114,7 @@ Helper.debug_inspect(@opts.options)
 ```
 
 [debug_inspect][Comandante::Helper.debug_inspect] will display
-debug messages if the user uses the `--debug` switch. 
+debug messages if the user uses the `--debug` switch.
 
 For a full example take a look at [examples/](https://github.com/tghaleb/comandante/blob/main/examples/)
 
@@ -149,7 +150,7 @@ class Eval < CommandAction
 end
 ```
 
-Create configuration for the sub command 
+Create configuration for the sub command
 
 ```crystal
 EVAL_OPTS = CommandConfig.new(
@@ -176,7 +177,7 @@ EVAL_OPTS = CommandConfig.new(
 )
 ```
 
-Here the action is the command object. For the option *src* we are
+Here the action is the command object. For the option _src_ we are
 using a [RepeatingOption][Comandante::OptParserTypes::OptionStyle::RepeatingOption].
 Aappend the configuration to the parser.
 
@@ -185,7 +186,6 @@ opts.append(EVAL_OPTS)
 ```
 
 For a complete example take a look at [examples/](https://github.com/tghaleb/comandante/blob/main/examples/)
-
 
 ### Cleaner
 
@@ -207,9 +207,9 @@ end
 [Cleaner.run][Comandante::Cleaner.run] will remove created tempfiles
 and temp directories on exiting the block. It will also catch any raised
 exceptions and exit printing the error message, or, if in debug mode,
-it will print a colorized backtrace. 
+it will print a colorized backtrace.
 
-For temp files and directories you will probably want to use a block, 
+For temp files and directories you will probably want to use a block,
 to make sure files are removed as soon as you're done with them.
 
 ```crystal
@@ -329,17 +329,17 @@ Which creates accessors on both the instance and on the `Config` module.
 And you can pass a yaml config file to initialize the instance like so:
 
 ```crystal
-Config.initialize("config.yaml")
+Config.load_config("config.yaml")
 
 puts Config.name
-puts Config.instace.name
+puts Config.age
 ...
 ```
 
 You can also add a validator for the config data,
 
 ```crystal
-private def self._validate
+def self._validate
   if self.age > 200
     self.exit_error("bad age #{self.age}")
   end
@@ -351,15 +351,13 @@ Which you can call by calling
 ```crystal
 Config.validate
 ```
+
 You can also create complex types that are classes just make sure to
 derive your sub-classes from `ConfigData`. Nested types also work.
 
 ```crystal
-class MyType < ConfigData 
+class MyType < ConfigData
 end
 ```
 
 Take a look at the code in [examples/](https://github.com/tghaleb/comandante/blob/main/examples/).
-
-
-

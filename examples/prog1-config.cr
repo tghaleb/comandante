@@ -5,34 +5,59 @@ module Prog1
   include Comandante
 
   class Config < ConfigSingleton
-    config_type(MyConfig) do
-      name : String = "foo"
-      age : Int32 = 150
+    # if your config is nested, you need to derive child types from ConfigData
+    class URLConfig < ConfigData
+      getter scheme : String = "https"
+      getter no_proxy : Bool = false
     end
 
-    private def self._validate
-      if self.age > 200
-        self.exit_error("bad age #{self.age}")
+    # config_type is used to configure your top Config type and add accessors
+    config_type(MyConfig) do
+      root_dir : String = "/srv/http/cache"
+      listen : String = "127.0.0.1"
+      port : Int32 = 8080
+      # This uses a type you've alread defined
+      urls : Hash(String, URLConfig) = Hash(String, URLConfig).new
+    end
+
+    # You can use something like this to validate config
+    def self.validate
+      self.urls.each do |k, v|
+        if v.scheme != "http" && v.scheme != "https"
+          self.exit_error("bad scheme #{v}")
+        end
       end
     end
   end
 
   class App
+    NAME  = "prog1"
+    LABEL = "Config test"
+    DESC  = "And does something else"
+
     def initialize
+      @opts = OptParser.new(NAME, LABEL, DESC, arguments_string: "FILE", arguments_range: 1..1)
+
+      @opts.append_option(OptParser::OptionConfig.new(
+        name: "debug",
+        label: "debug mode",
+        simple_action: OptParser::OptProc.new { |v| Cleaner.debug = v.as(Bool) }
+      ))
     end
 
     def run
-      unless ARGV.size == 1
-        STDERR.puts "E: need config.yaml"
+      Comandante::Cleaner.run do
+        @opts.parse
+
+        # Config.instance.load_config(@opts.args[0])
+        Config.load_config(@opts.args[0])
+        Config.validate
+
+        # add this
+        # puts Config.dump_yaml
+        puts Config.root_dir
+        puts Config.listen
       end
-
-      Config.instance(ARGV[0])
-
-      puts Config.dump_yaml
-      puts Config.name
-      puts Config.instance.name
-      puts Config.age
-      puts Config.instance.age
     end
   end
 
