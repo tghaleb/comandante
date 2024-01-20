@@ -16,25 +16,26 @@ module Comandante
   # Example
   #
   # ```
-  #    class Config < ConfigSingleton
-  #      config_type(MyConfig) do
-  #        name : String = "foo"
-  #        age : Int32 = 150
-  #      end
+  # class Config < ConfigSingleton
+  #   config_type(MyConfig) do
+  #     name : String = "foo"
+  #     age : Int32 = 150
+  #   end
+  #   ...
+  # end
   # ```
   #
-  # if you intend to use nested types derive them first from ConfigData
+  # if you intend to use nested types define one or more sub_config_type
   #
   # ```
-  #    class Config < ConfigSingleton
-  #      class URLConfig < ConfigData
-  #        getter scheme : String = "https"
-  #        getter no_proxy : Bool = false
-  #      end
+  # sub_config_type(URLConfig) do
+  #   scheme : String = "https"
+  #   no_proxy : Bool = false
+  # end
   #
-  #      config_type(MyConfig) do
-  #        urls : Hash(String, URLConfig) = Hash(String, URLConfig).new
-  #      end
+  # config_type(ServerConfig) do
+  #   urls : Hash(String, URLConfig) = Hash(String, URLConfig).new
+  # end
   # ```
   abstract class ConfigSingleton
     include Comandante
@@ -81,7 +82,6 @@ module Comandante
       class {{klass}} < ConfigData
         property {{var}} : {{type}}  = {{value}}
       end
-      _property {{var}}
     end
 
     private macro _multi_property_config_type(klass, &block)
@@ -93,7 +93,6 @@ module Comandante
           {{expr}}
         {% end %}{% end %}
       end
-      _properties({{yield.expressions}})
     end
 
     # defines a config type and accessors of its properties on the
@@ -101,11 +100,22 @@ module Comandante
     macro config_type(klass, &block)
       as_singleton
       {% if yield.is_a?(TypeDeclaration) %}
-          _single_property_config_type({{klass}}, {{yield.var}}, {{yield.type}}, {{yield.value}})
+        _single_property_config_type({{klass}}, {{yield.var}}, {{yield.type}}, {{yield.value}})
+        _property {{yield.var}}
       {% else %}
-       _multi_property_config_type({{klass}}) {{block}}
+        _multi_property_config_type({{klass}}) {{block}}
+        _properties({{yield.expressions}})
       {% end %}
       _def_config({{klass}})
+    end
+
+    # test this
+    macro sub_config_type(klass, &block)
+      {% if yield.is_a?(TypeDeclaration) %}
+        _single_property_config_type({{klass}}, {{yield.var}}, {{yield.type}}, {{yield.value}})
+      {% else %}
+        _multi_property_config_type({{klass}}) {{block}}
+      {% end %}
     end
 
     # Used to load/read config file
@@ -117,6 +127,17 @@ module Comandante
     # ```
     def self.load_config(file)
       instance.load_config(file)
+    end
+
+    # Dumps to yaml
+    #
+    # Example
+    #
+    # ```
+    # Config.to_yaml
+    # ```
+    def self.to_yaml
+      instance.config.to_yaml
     end
 
     private def self.exit_error(msg)

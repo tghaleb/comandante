@@ -331,6 +331,8 @@ And you can pass a yaml config file to initialize the instance like so:
 ```crystal
 Config.load_config("config.yaml")
 
+puts Config.to_yaml
+
 puts Config.name
 puts Config.age
 ...
@@ -339,7 +341,7 @@ puts Config.age
 You can also add a validator for the config data,
 
 ```crystal
-def self._validate
+def self.validate
   if self.age > 200
     self.exit_error("bad age #{self.age}")
   end
@@ -352,11 +354,12 @@ Which you can call by calling
 Config.validate
 ```
 
-You can also create complex types that are classes just make sure to
-derive your sub-classes from `ConfigData`. Nested types also work.
+You can also create complex types that are classes and nest config, just make sure to
+create them with `sub_config_type` see examples,
 
 ```crystal
-class MyType < ConfigData
+subConfig(URLConfig) do
+  ...
 end
 ```
 

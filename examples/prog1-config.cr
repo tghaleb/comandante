@@ -5,14 +5,14 @@ module Prog1
   include Comandante
 
   class Config < ConfigSingleton
-    # if your config is nested, you need to derive child types from ConfigData
-    class URLConfig < ConfigData
-      getter scheme : String = "https"
-      getter no_proxy : Bool = false
+    # if your config is nested, you need to define sub config types
+    sub_config_type(URLConfig) do
+      scheme : String = "https"
+      no_proxy : Bool = false
     end
 
     # config_type is used to configure your top Config type and add accessors
-    config_type(MyConfig) do
+    config_type(ServerConfig) do
       root_dir : String = "/srv/http/cache"
       listen : String = "127.0.0.1"
       port : Int32 = 8080
@@ -49,12 +49,14 @@ module Prog1
       Comandante::Cleaner.run do
         @opts.parse
 
-        # Config.instance.load_config(@opts.args[0])
+        # To load yaml config file
         Config.load_config(@opts.args[0])
+
+        # To validate
         Config.validate
 
-        # add this
-        # puts Config.dump_yaml
+        # To dump to yaml
+        puts Config.to_yaml
         puts Config.root_dir
         puts Config.listen
       end
