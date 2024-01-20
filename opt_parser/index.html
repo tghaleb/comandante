@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OptParser - Comandante</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OptParser", url: "#_top", children: [
+              {title: "Constants", url: "#Comandante::OptParser-constants" },
+              {title: "Constructors", url: "#Comandante::OptParser-constructors" },
+              {title: "Class methods", url: "#Comandante::OptParser-class-methods" },
+              {title: "Methods", url: "#Comandante::OptParser-methods" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../opt_parser_types/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../opt_parser_types/" class="btn btn-xs btn-link">
+        OptParser Types
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../comandante/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../comandante/" class="btn btn-xs btn-link">
+        Comandante
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="doc doc-object doc-type class">
+<h2 id="Comandante::OptParser" class="doc doc-heading">class <code>Comandante::OptParser</code>
+      <br/><small>inherits <code>Reference</code></small>
+</h2>
+  <div class="doc doc-contents first">
+
+      <div class="doc doc-children">
+
+            <h3>Included modules</h3>
+              <code><a class="autorefs autorefs-internal" href="../opt_parser_types/#Comandante::OptParserTypes">Comandante::OptParserTypes</a></code>
+
+<h3 id="Comandante::OptParser-constants">Constants</h3>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::COLOR_OFF_OPT" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">COLOR_OFF_OPT = </span><span class="n">OptionConfig</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no-color&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">short</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;color mode off.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">action</span><span class="p">:</span><span class="w"> </span><span class="n">ColorOffAction</span><span class="o">.</span><span class="n">new</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::DEBUG_OPT" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">DEBUG_OPT = </span><span class="n">OptionConfig</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">short</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debug mode.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">action</span><span class="p">:</span><span class="w"> </span><span class="n">DebugAction</span><span class="o">.</span><span class="n">new</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Built-ins</p>  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::ERROR_MSGS" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">ERROR_MSGS = </span><span class="p">{</span><span class="ss">invalid_option</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invalid option &#39;%s&#39;!&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">bad_command</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bad sub_command &#39;%s&#39;!&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">wrong_argument_count</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wrong argument count!&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">option_requires_value</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;option --%s requires a value&quot;</span><span class="p">}</span></code></h4>
+  <div class="doc doc-contents ">
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>cleanups for this file
+:nodoc:</p>
+</div>  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::ROOT_ID" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">ROOT_ID = </span><span class="s2">&quot;/&quot;</span></code></h4>
+  <div class="doc doc-contents ">
+<p>ID for the main command, used internally</p>  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::VERBOSE_OPT" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">VERBOSE_OPT = </span><span class="n">OptionConfig</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">short</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;verbose mode.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">simple_action</span><span class="p">:</span><span class="w"> </span><span class="n">OptParser</span><span class="o">::</span><span class="n">OptProc</span><span class="o">.</span><span class="n">new</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">v</span><span class="o">|</span><span class="w">  </span><span class="n">Cleaner</span><span class="o">.</span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="k">end</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::OptParser::VERSION_OPT" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">VERSION_OPT = </span><span class="n">OptionConfig</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;version&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">label</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;display version and exit.&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">action</span><span class="p">:</span><span class="w"> </span><span class="n">VersionAction</span><span class="o">.</span><span class="n">new</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+<h3 id="Comandante::OptParser-constructors">Constructors</h3>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::OptParser.new(name,label,description,arguments_string,arguments_range)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.new</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">arguments_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="no">MAX_ARGS</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Creates the parser for the program. At lease a <em>name</em> and <em>label</em>
+are required.</p>
+<p>Examples:</p>
+<p>For a simple program that will not use subcommands, and accepts 1 argument</p>
+<pre><code>opts = OptParser.new(NAME, LABEL, DESC,
+  argument_string: &quot;FILE&quot;,
+  argument_range: 1..1)
+</code></pre>
+<p>For a program that will have subcommands</p>
+<pre><code>opts = OptParser.new(NAME, LABEL, DESC)
+</code></pre>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L154">View source</a>
+</div><h3 id="Comandante::OptParser-class-methods">Class methods</h3>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::OptParser.assert_arg_count(args,range)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.assert_arg_count</span><span class="p">(</span><span class="n">args</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="n">String</span><span class="p">),</span><span class="w"> </span><span class="n">range</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Range</span><span class="p">(</span><span class="n">Int32</span><span class="p">,</span><span class="w"> </span><span class="n">Int32</span><span class="p">))</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Asserts argument count is in range, used internally, no
+need to call this directly</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L121">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::OptParser.assert_option_value(opt,value)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.assert_option_value</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Asserts option has a value set or a default, used internally, no
+need to call this directly</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L129">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::OptParser.version" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.version</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L7">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::OptParser.version=(val)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.version=</span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L11">View source</a>
+</div><h3 id="Comandante::OptParser-methods">Methods</h3>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#append(cmd)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#append</span><span class="p">(</span><span class="n">cmd</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../opt_parser_types/#Comandante::OptParserTypes::CommandConfig">CommandConfig</a><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Appends Configuration for a subcommand, including its options.</p>
+<p>Examples:</p>
+<p>Adding a subcommand</p>
+<pre><code>opts.append(EVAL_OPTS)
+</code></pre>
+<p>where EVAL_OPTS is a <a class="autorefs autorefs-internal" href="../opt_parser_types/#Comandante::OptParserTypes::CommandConfig"><code>OptParserTypes::CommandConfig</code></a></p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L215">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#append_option(opt,id)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#append_option</span><span class="p">(</span><span class="n">opt</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../opt_parser_types/#Comandante::OptParserTypes::OptionConfig">OptionConfig</a><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ROOT_ID</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Appends configuration for an option, <em>id</em> is the name/id of the
+subcommand, when not given option is added to the main/root command.</p>
+<p>Examples:</p>
+<p>Adding to main command</p>
+<pre><code>opts.append_option(DEBUG_OPT)
+</code></pre>
+<p>where DEBUG_OPT is an <a class="autorefs autorefs-internal" href="../opt_parser_types/#Comandante::OptParserTypes::OptionConfig"><code>OptParserTypes::OptionConfig</code></a></p>
+<p>Although you can also use this method to add options to
+subcommands, prefered way is to use <a class="autorefs autorefs-internal" href="#Comandante::OptParser#append(cmd)"><code>append</code></a> and configure
+subcommands with all options that way.</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L188">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#args" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#args</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Arguments Parsed</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L106">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#auto_help" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#auto_help</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Controls to add or not to add a help option to command+subcommands</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L100">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#auto_help=(auto_help)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#auto_help=</span><span class="p">(</span><span class="n">auto_help</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Bool</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Controls to add or not to add a help option to command+subcommands</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L100">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#commands_str" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#commands_str</span></code></h4>
+  <div class="doc doc-contents ">
+<p>The header to user for subcommands (defaults are usually fine)</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L114">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#commands_str=(commands_str)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#commands_str=</span><span class="p">(</span><span class="n">commands_str</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>The header to user for subcommands (defaults are usually fine)</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L114">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#max_width" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#max_width</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Controls Maximum text width</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L103">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#max_width=(max_width)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#max_width=</span><span class="p">(</span><span class="n">max_width</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Int32</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Controls Maximum text width</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L103">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#options(id)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#options</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ROOT_ID</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Options Parsed</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L109">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#options_str" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#options_str</span></code></h4>
+  <div class="doc doc-contents ">
+<p>The header to use for options (defaults are usually fine)</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L117">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#options_str=(options_str)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#options_str=</span><span class="p">(</span><span class="n">options_str</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>The header to use for options (defaults are usually fine)</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L117">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#parse(args,id)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#parse</span><span class="p">(</span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ARGV</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ROOT_ID</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Do the actual parsing, called after all subcommands and options
+are added to <a class="autorefs autorefs-internal" href="#Comandante::OptParser"><code>OptParser</code></a> object.
+Will call any action associated with subcommands and options
+If you have no subcommands then you'll probably want to call
+<a class="autorefs autorefs-internal" href="#Comandante::OptParser#options(id)"><code>.options</code></a> and <a class="autorefs autorefs-internal" href="#Comandante::OptParser#args"><code>.args</code></a> to get the options and arguments
+passed to the program.</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L233">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h4 id="Comandante::OptParser#print_help(id)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#print_help</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">ROOT_ID</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Is called automatically but just in case you want to call it
+manually</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/opt_parser.cr#L248">View source</a>
+</div>      </div>
+  </div>
+
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../opt_parser_types/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../opt_parser_types/" class="btn btn-xs btn-link">
+        OptParser Types
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../comandante/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../comandante/" class="btn btn-xs btn-link">
+        Comandante
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Helper - Comandante</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../assets/_mkdocstrings.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "YamlTo", url: "#_top", children: [
+              {title: "Class methods", url: "#Comandante::Helper::YamlTo-class-methods" },
+          ]},
+          {title: "Helper", url: "#Comandante::Helper", children: [
+              {title: "Constants", url: "#Comandante::Helper-constants" },
+              {title: "Class methods", url: "#Comandante::Helper-class-methods" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../macros/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../macros/" class="btn btn-xs btn-link">
+        Macros
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cleaner_types/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cleaner_types/" class="btn btn-xs btn-link">
+        Cleaner Types
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="doc doc-object doc-type module">
+<h2 id="Comandante::Helper::YamlTo" class="doc doc-heading">module <code>Comandante::Helper::YamlTo(T)</code>
+</h2>
+  <div class="doc doc-contents first">
+<p>A from_yaml wrapper that exits/raises on failure</p>
+<p>Example</p>
+<pre><code>x = YamlTo(Array(Int32)).load(&quot;[1,2,3]&quot;, &quot;:config&quot;)
+</code></pre>
+      <div class="doc doc-children">
+
+
+
+<h3 id="Comandante::Helper::YamlTo-class-methods">Class methods</h3>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper::YamlTo.load(s,context)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.load</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">T</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L25">View source</a>
+</div>      </div>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-type module">
+<h2 id="Comandante::Helper" class="doc doc-heading">module <code>Comandante::Helper</code>
+</h2>
+  <div class="doc doc-contents first">
+<p>Some helper functions</p>
+      <div class="doc doc-children">
+
+
+<h3 id="Comandante::Helper-constants">Constants</h3>
+
+<div class="doc doc-object doc-constant">
+<h4 id="Comandante::Helper::EMPTY_STRING_ARRAY" class="doc doc-heading"><code class="highlight language-crystal"><span class="doc-title">EMPTY_STRING_ARRAY = </span><span class="n">Array</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="o">.</span><span class="n">new</span></code></h4>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+<h3 id="Comandante::Helper-class-methods">Class methods</h3>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.assert(cond,msg)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.assert</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Asserts a condition, depending on <a class="autorefs autorefs-internal" href="../cleaner/#Comandante::Cleaner"><code>Cleaner</code></a> will either exit with
+message or raise an error</p>
+<p>Example:</p>
+<pre><code>assert(value &gt; 0, &quot;Expecting a value &gt; 0&quot;)
+</code></pre>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L90">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.assert_directory(dir)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.assert_directory</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Asserts that a directory exists</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L102">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.assert_file(file)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.assert_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Asserts that a file exists</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L97">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.debug_inspect(val,context)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.debug_inspect</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Prints a colorized inspect of val if <a class="autorefs autorefs-internal" href="../cleaner/#Comandante::Cleaner"><code>Cleaner</code></a> is in debug mode</p>
+<p>Example:</p>
+<pre><code>debug_inspect(@opts, context: &quot;@opts&quot;)
+debug_inspect({test: x == y})
+debug_inspect([&quot;one&quot;, &quot;two&quot;])
+</code></pre>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L69">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.file_md5sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.file_md5sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns md5 digest for file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.file_sha1sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.file_sha1sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha1 digest for file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.file_sha256sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.file_sha256sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha256 digest for file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.file_sha512sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.file_sha512sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha512 digest for file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.mkdir(dir,verbose)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.mkdir</span><span class="p">(</span><span class="n">dir</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>mkdir with verbose option</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L107">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.parse_yaml(str,context)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.parse_yaml</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">YAML</span><span class="o">::</span><span class="n">Any</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Parses yaml string and fails with message,
+<em>context</em> is used in error messages</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L165">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.put_debug(msg,pref)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.put_debug</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">pref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Debug: &#34;</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Prints a debug message if <a class="autorefs autorefs-internal" href="../cleaner/#Comandante::Cleaner"><code>Cleaner</code></a> is in debug mode</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L54">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.put_error(msg,pref)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.put_error</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">pref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Error: &#34;</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Prints an error message to STDERR</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L39">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.put_verbose(msg)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.put_verbose</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Prints a message to STDERR if in verbose mode</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L49">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.put_warning(msg,pref)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.put_warning</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">pref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;Warning: &#34;</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Prints a warning message to STDERR</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L44">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.read_gzip(path,&amp;)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.read_gzip</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Reads gziped file line by line</p>
+<pre><code>read_gzip(path) { |line| puts line }
+</code></pre>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L189">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.read_gzip(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.read_gzip</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Reads gziped file into a string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L203">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.read_yaml(file)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.read_yaml</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">YAML</span><span class="o">::</span><span class="n">Any</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Parses yaml from file and fails with message</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L153">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.run(cmd,args,msg)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">EMPTY_STRING_ARRAY</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;cmd failed&#34;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Runs a command using system and raises if command fails</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L233">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.string_md5sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.string_md5sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns md5 digest for string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.string_sha1sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.string_sha1sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha1 digest for string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.string_sha256sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.string_sha256sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha256 digest for string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.string_sha512sum(path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.string_sha512sum</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Returns sha512 digest for string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L131">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.string_to_file(str,file)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.string_to_file</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Writes String to a file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L144">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.timer" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.timer</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Timer for a block of commands, prints time at the end
+Examples</p>
+<pre><code>timer { do_something }
+</code></pre>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L261">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.write_binary_file(file,data)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.write_binary_file</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Bytes</span><span class="p">)</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Writes Bytes to a file</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L226">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h4 id="Comandante::Helper.write_gzip(str,path)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.write_gzip</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Nil</span></code></h4>
+  <div class="doc doc-contents ">
+<p>Writes gziped file from a string</p>  </div>
+
+    <a class="doc-source-link" href="https://github.com/tghaleb/comandante/blob/b396aca4aa14619ad12b3393b62f4e5fc8b6238f/src/comandante/helper.cr#L216">View source</a>
+</div>      </div>
+  </div>
+
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../macros/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../macros/" class="btn btn-xs btn-link">
+        Macros
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cleaner_types/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cleaner_types/" class="btn btn-xs btn-link">
+        Cleaner Types
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

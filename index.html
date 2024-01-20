@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="None">
+    
+    
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Comandante</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <link href="assets/_mkdocstrings.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+          {title: "Comandante", url: "#_top", children: [
+              {title: "Features", url: "#features" },
+              {title: "Installation", url: "#installation" },
+              {title: "Examples", url: "#examples" },
+              {title: "Usage", url: "#usage" },
+          ]},
+        ];
+
+    </script>
+    <script src="./js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
+    </div>
+
+    
+    
+
+    
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+      <div class="wm-top-title">
+        Comandante<br>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+  <div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Home</a>
+</li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">API</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="comandante/" class="wm-article-link wm-toc-text">Comandante</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="opt_parser/" class="wm-article-link wm-toc-text">OptParser</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="opt_parser_types/" class="wm-article-link wm-toc-text">OptParser Types</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="cleaner/" class="wm-article-link wm-toc-text">Cleaner</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="cleaner_types/" class="wm-article-link wm-toc-text">Cleaner Types</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="helper/" class="wm-article-link wm-toc-text">Helper</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="macros/" class="wm-article-link wm-toc-text">Macros</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="config_singleton/" class="wm-article-link wm-toc-text">ConfigSigleton</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="bits/" class="wm-article-link wm-toc-text">Bits</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="other/" class="wm-article-link wm-toc-text">Other</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="comandante/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="comandante/" class="btn btn-xs btn-link">
+        Comandante
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="comandante">Comandante</h1>
+<p>A CLI toolkit including an option parser and some helper
+commands to make life easier.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Easy to use command line <a class="autorefs autorefs-internal" href="opt_parser/#Comandante::OptParser">option parser</a>.</li>
+<li>Supports four <a class="autorefs autorefs-internal" href="opt_parser_types/#Comandante::OptParserTypes::OptionStyle">option types</a>:</li>
+<li>Switches</li>
+<li>Options</li>
+<li>Repeating Switches</li>
+<li>Repeating Options</li>
+<li>Automatic addition of help (active by <a class="autorefs autorefs-internal" href="opt_parser/#Comandante::OptParser#auto_help">default</a>).</li>
+<li>User actions can be attached to commands/options.</li>
+<li>Argument count checking.</li>
+<li>Customizable modes of <a class="autorefs autorefs-internal" href="cleaner_types/#Comandante::Cleaner::FailureMode">failure</a>:</li>
+<li>Exit with message</li>
+<li>Raise exception</li>
+<li>A <a class="autorefs autorefs-internal" href="cleaner/#Comandante::Cleaner">cleaner</a> which allows for custom cleanup functions on exits
+  or exceptions.</li>
+<li>tempfiles and directories that will automatically be cleaned on
+  exit.</li>
+<li>A <code>ConfigSignleton</code> class that simplifies loading config from <code>yaml</code>
+  files.</li>
+<li>A <a class="autorefs autorefs-internal" href="helper/#Comandante::Helper">helper</a> providing:</li>
+<li>error messages</li>
+<li>warning messages</li>
+<li>debugging messages</li>
+<li>assertions</li>
+<li>yaml reader/writer</li>
+<li>gzip file reader/writer</li>
+<li>and more ...</li>
+<li>Colorized backtrace messages for <a class="autorefs autorefs-internal" href="other/#Exception">exceptions</a>.</li>
+<li>Helper functions for <a class="autorefs autorefs-internal" href="bits/#Comandante::Bits">bitwise operations</a>.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Add the dependency to your <code>shard.yml</code>:</li>
+</ol>
+<pre><code class="language-yaml">dependencies:
+  comandante:
+    github: tghaleb/comandante
+</code></pre>
+<ol>
+<li>Run <code>shards install</code></li>
+</ol>
+<h2 id="examples">Examples</h2>
+<p>In <code>Commandante</code> project directory:</p>
+<pre><code class="language-console">make examples
+./examples/prog1 -h
+./examples/prog2 --help
+./examples/prog1-config --debug ./examples/prog1-config.yaml
+</code></pre>
+<p>Take a look at the code in
+<a href="https://github.com/tghaleb/comandante/blob/main/examples/">examples/</a>
+and optionally in
+<a href="https://github.com/tghaleb/comandante/blob/main/spec/">spec/</a>.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-crystal">require &quot;comandante&quot;
+</code></pre>
+<h3 id="optparser">OptParser</h3>
+<p><code>OptParser</code> can be used to parse arguments for interfaces with simple
+arguments as well as those that have sub commands. For a very basic CLI
+create a new <a class="autorefs autorefs-internal" href="opt_parser/#Comandante::OptParser.new(name,label,description,arguments_string,arguments_range)">OptParser</a>.</p>
+<pre><code class="language-crystal">@opts = OptParser.new(NAME, LABEL,
+  arguments_string: &quot;FILE&quot;,
+  arguments_range: 1..1)
+</code></pre>
+<p><em>arguments_range</em> for argument count checking.</p>
+<p>Add an option, unless you specify the option type
+it is a <a class="autorefs autorefs-internal" href="opt_parser_types/#Comandante::OptParserTypes::OptionStyle::Switch">Swtich</a></p>
+<pre><code class="language-crystal">@opts.append_option(
+  OptParser::OptionConfig.new(
+   name: &quot;debug&quot;,
+   label: &quot;debug mode&quot;,
+   simple_action: OptParser::OptProc.new { |v| Cleaner.debug = v.as(Bool) }
+ ))
+@opts.append_option(
+  OptParser::OptionConfig.new(
+   name: &quot;verbose&quot;,
+   label: &quot;verbose mode&quot;,
+   simple_action: OptParser::OptProc.new { |v| Cleaner.verbose = v.as(Bool) }
+ ))
+
+</code></pre>
+<p>The <em>simple_action</em> takes a proc that sets debug mode. Another
+option that you can use is <em>action</em> which takes a class
+derived from <a class="autorefs autorefs-internal" href="opt_parser_types/#Comandante::OptParserTypes::OptionAction">OptionAction</a>.
+Use it when <code>simple_action</code> is not enough.</p>
+<pre><code class="language-crystal">@opts.parse
+
+Helper.debug_inspect(@opts.args)
+Helper.debug_inspect(@opts.options)
+</code></pre>
+<p><a class="autorefs autorefs-internal" href="helper/#Comandante::Helper.debug_inspect(val,context)">debug_inspect</a> will display
+debug messages if the user uses the <code>--debug</code> switch.</p>
+<p>For a full example take a look at <a href="https://github.com/tghaleb/comandante/blob/main/examples/">examples/</a></p>
+<p>There is also <code>debug</code> and <code>debug_pretty</code> macros, which are wrappers
+around the above but will not be included when compiled in <code>--release</code>
+mode. These are the ones to use when maximum performance is
+required, to avoid any overhead of the debug calls. Just require:</p>
+<pre><code class="language-crystal">require &quot;comandante/macros&quot;
+</code></pre>
+<p>and include <a class="autorefs autorefs-internal" href="macros/#Comandante::Macros">Macros</a> where you want to use them.</p>
+<p>For subcommands you create a class derived from <a class="autorefs autorefs-internal" href="opt_parser_types/#Comandante::OptParserTypes::CommandAction">CommandAction</a>.</p>
+<pre><code class="language-crystal">class Eval &lt; CommandAction
+  def run(
+    global_opts : OptionsHash,
+    opts : OptionsHash,
+    args : Array(String)
+  ) : Nil
+    Helper.debug_inspect global_opts
+    Helper.debug_inspect opts
+    Helper.debug_inspect args
+    opts[&quot;src&quot;].as(Array(String)).each do |f|
+      File.open(f) do |io|
+        &quot;will read &quot; + f
+      end
+    end
+  end
+end
+</code></pre>
+<p>Create configuration for the sub command</p>
+<pre><code class="language-crystal">EVAL_OPTS = CommandConfig.new(
+  name: &quot;eval&quot;,
+  label: &quot;Evaluates some sources.&quot;,
+  description: &lt;&lt;-E.to_s,
+            Will evaluate something.
+            And can accept repeating --src options
+
+            Example:
+              #{NAME} eval --src one --src two
+            E
+  action: Commands::Eval.new,
+  arguments_range: 0..0,
+  options: [
+    OptionConfig.new(
+      name: &quot;src&quot;,
+      short: &quot;s&quot;,
+      label: &quot;src of file(s) to eval.&quot;,
+      argument_string: &quot;FILE&quot;,
+      option_type: OptionStyle::RepeatingOption,
+    ),
+  ],
+)
+</code></pre>
+<p>Here the action is the command object. For the option <em>src</em> we are
+using a <a class="autorefs autorefs-internal" href="opt_parser_types/#Comandante::OptParserTypes::OptionStyle::RepeatingOption">RepeatingOption</a>.
+Aappend the configuration to the parser.</p>
+<pre><code class="language-crystal">opts.append(EVAL_OPTS)
+</code></pre>
+<p>For a complete example take a look at <a href="https://github.com/tghaleb/comandante/blob/main/examples/">examples/</a></p>
+<h3 id="cleaner">Cleaner</h3>
+<p>You wrap your code in a <a class="autorefs autorefs-internal" href="cleaner/#Comandante::Cleaner#run">Cleaner.run</a></p>
+<pre><code class="language-crystal">Cleaner.run do |x|
+  opts.parse
+  tempfile = Cleaner.tempfile
+  do_stuff(temfile)
+
+  tempdir = Cleaner.tempdir
+  do_stuff(tempdir)
+
+  raise &quot;something wrong happend&quot;
+end
+</code></pre>
+<p><a class="autorefs autorefs-internal" href="cleaner/#Comandante::Cleaner#run">Cleaner.run</a> will remove created tempfiles
+and temp directories on exiting the block. It will also catch any raised
+exceptions and exit printing the error message, or, if in debug mode,
+it will print a colorized backtrace.</p>
+<p>For temp files and directories you will probably want to use a block,
+to make sure files are removed as soon as you're done with them.</p>
+<pre><code class="language-crystal">Cleaner.run do |x|
+  Cleaner.tempfile do |file|
+    # do something with file
+  end
+  # file will be removed
+end
+</code></pre>
+<p>You can register cleanup procs that will be run on block exit, or when a
+Cleaner explicit exit is called.</p>
+<pre><code class="language-crystal">Cleaner.register -&gt; { puts &quot;will do cleanups&quot; }
+</code></pre>
+<p>In cases you want to exit with an error, or just exit cleanly, you can run</p>
+<pre><code class="language-crystal">if File.file? file
+  Cleaner.exit_success
+else
+  Cleaner.exit_failure(&quot;Failed to create file&quot;)
+end
+</code></pre>
+<p>Both will run a cleanup job before they exit, running any registered
+cleaners in addition to removing tempfiles and temp directories.</p>
+<h3 id="helper">Helper</h3>
+<pre><code class="language-crystal"># printing messages
+Helper.debug_msg(&quot;Will print this in debug mode&quot;
+Helper.debug_inspect(@opts)
+Helper.put_error(&quot;Something went wrong&quot;)
+Helper.put_verbose(&quot;Creating files&quot;)
+
+# running commands
+Helper.run(&quot;touch newfile&quot;)
+
+# asserts
+Helper.assert(x &lt; 5, &quot;Not in range&quot;)
+Helper.assert_file(file)
+Helper.assert_directory(dir)
+
+# reading files
+@config = Helper.read_yaml(file)
+@config = Helper.parse_yaml(str, context_str)
+
+Helper.read_gzip(file) do |line|
+  puts line
+end
+
+s = Helper.read_gzip(path)
+
+# Create a directory with a verbose option
+Helper.mkdir(dir, verbose: true)
+
+# digests for files/strings
+puts Helper.file_md5sum(path)
+puts Helper.file_sha1sum(path)
+puts Helper.string_sha256sum(&quot;test&quot;)
+puts Helper.string_sha512sum(&quot;test&quot;)
+
+# Times a job and prints time it took
+Helper.timer {
+ long_job
+}
+</code></pre>
+<h3 id="bits">Bits</h3>
+<pre><code class="language-crystal">x = 5.to_u16
+y = 12.to_u64
+
+Bits.set_bits(x, [1, 3, 7, 8])
+
+# test if a bit is set
+do_something if Bits.bit_set?(3, y)
+
+z = Bits.get_bits(y, from: 2, count 3)
+
+z = Bits.popcount_bits(y, from: 1, count 3)
+
+puts Bits.bits_to_string(y)
+
+Bits.loop_over_set_bits(x) do |i|
+  puts &quot;bit #{i} is set&quot;
+end
+
+# store int as uint and vice versa, for example if you want
+# to save uints in an sqlite database.
+m = bits.store_as_int(x)
+u = bits.store_as_uint(m)
+</code></pre>
+<p>see <a href="https://github.com/tghaleb/comandante/blob/main/spec/">spec/</a></p>
+<h3 id="config">Config</h3>
+<p>A <a class="autorefs autorefs-internal" href="config_singleton/#Comandante::ConfigSingleton">ConfigSingleton</a> that simplifies loading config from a <code>yaml</code> file. You use the included macro <code>config_type</code>, for example:</p>
+<pre><code class="language-crystal">  class Config &lt; ConfigSingleton
+    config_type(MyConfig) do
+      name : String = &quot;foo&quot;
+      age : Int32 = 150
+    end
+...
+</code></pre>
+<p>Which creates accessors on both the instance and on the <code>Config</code> module.
+And you can pass a yaml config file to initialize the instance like so:</p>
+<pre><code class="language-crystal">Config.load_config(&quot;config.yaml&quot;)
+
+puts Config.to_yaml
+
+puts Config.name
+puts Config.age
+...
+</code></pre>
+<p>You can also add a validator for the config data,</p>
+<pre><code class="language-crystal">def self.validate
+  if self.age &gt; 200
+    self.exit_error(&quot;bad age #{self.age}&quot;)
+  end
+end
+</code></pre>
+<p>Which you can call by calling</p>
+<pre><code class="language-crystal">Config.validate
+</code></pre>
+<p>You can also create complex types that are classes and nest config, just make sure to
+create them with <code>sub_config_type</code> see examples,</p>
+<pre><code class="language-crystal">sub_config_type(URLConfig) do
+  ...
+end
+</code></pre>
+<p>Take a look at the code in <a href="https://github.com/tghaleb/comandante/blob/main/examples/">examples/</a>.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="comandante/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="comandante/" class="btn btn-xs btn-link">
+        Comandante
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-01-20 07:04:04.869089+00:00
+-->
