@@ -358,7 +358,7 @@ You can also create complex types that are classes and nest config, just make su
 create them with `sub_config_type` see examples,
 
 ```crystal
-subConfig(URLConfig) do
+sub_config_type(URLConfig) do
   ...
 end
 ```
